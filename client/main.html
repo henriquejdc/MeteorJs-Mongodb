@@ -1,0 +1,262 @@
+<head>
+
+    <link rel="shortcut icon" href="logo.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Físico Academia</title>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Comece na</span> Físico
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Físico</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Facebook Fotos</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contato</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#sugestao">Sugestões</a>
+                    </li>            
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Físico</h1>
+                        <br>
+                        <br>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+    	{{> sobre}}
+    	{{> fotos}}
+    	{{> contato}}
+    	{{> sugestao}}
+    	{{> footer}}
+    	{{> janelalogin}}
+    	{{> janelaadmin}}
+
+    </main>
+    
+</body>
+
+<template name="footer">
+	<footer>
+        <div class="container text-center">
+            <div class="white">
+            <p>Copyright<button class="btn btn-link" id="mostra_janela">&copy;</button>Henrique J. D. Corte 2017</p>
+            </div>
+        </div>
+    </footer>
+</template>
+
+<template name="janelalogin">
+	<div class="modal fade" id="modal_form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                    </div>
+                    <div class="modal-body">
+                      <form id="logar">
+                        <fieldset>
+                            <label>Login</label>
+                            <input id="nome" type="text" class="form-control">
+                            <label>Senha</label>
+                            <input id="senha" type="passowrd" class="form-control">              
+                            <br>
+                            <button type="submit" class="btn btn-success">Logar</button>
+                        </fieldset>
+                      </form>            
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-warning">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                        
+</template>
+
+<template name="janelaadmin">
+	<div class="modal fade" id="modal_admin">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Sugestões:  
+                    	<div class="modal-footer">
+                       	 <button data-dismiss="modal" class="btn btn-warning">Fechar</button>
+                    	</div>
+                    </div>
+                      {{#each bdimages}}
+				         <div class="thumbnail" id="{{_id}}">    				 
+				                <div class="caption">
+				                    <h3>Nome: {{nome}}</h3> <!-- exibir título -->
+				                    <p>Email: {{email}}</p> 
+				                    <p>Sugestão: {{sugestao}}</p>
+				                    <p>Lido: {{lido}}</p>
+				                    <button id="deleta_imagem" class="btn btn-warning">Deleta Sugestão</button>
+				                    <button id="lido_imagem" class="btn btn-warning">Ler Sugestão</button>
+				                </div>
+
+				        </div>
+				       {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>                        
+</template>
+
+<template name="sobre">
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="white">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Sobre Nós</h2>
+                <p>Físico é uma academia com mais de 10 anos de funciomaneto, que sempre esta buscando melhor atender seus clientes.</p>
+                <p>Hoje contando com amplo espaço e diversidade de aparelhos, juntamente com profissionais para prontamente atender alunos em busca de seus objetivos.</p>
+                <p>Venha conhecer, atividades físicas melhoram seu bem estar.</p>
+            </div>
+            </div>
+        </div>
+    </section>
+</template>
+    <!-- Fotos Section -->
+<template name="fotos">
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Facebook</h2>
+                    <p>Você pode ver nossas fotos e notícias em:</p>
+                    <a href="https://www.facebook.com/academiafisico" class="btn btn-default btn-lg">Visite nossa página no facebook</a>
+                    <br><br><br>
+                    <p>Patrocinios:</p>	
+                </div>
+                
+
+                 <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <div class="item active">
+                            {{#each vetorImagens1}}
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <!-- JavaScript Tooltip -->
+                                        <i data-toggle="tooltip" data-placement={{localTooltip}} title={{title}}><img class="hidden-print" src={{src}} alt={{alt}}></i>
+                                    </div>
+                            {{/each}}
+                            </div>
+                            <div class="item">
+                            {{#each vetorImagens2}}
+                                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                        <!-- JavaScript Tooltip -->
+                                        <i data-toggle="tooltip" data-placement={{localTooltip}} title={{title}}><img class="hidden-print" src={{src}} alt={{alt}}></i>
+                                    </div>
+                            {{/each}}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template name="sugestao">
+    <section id="sugestao" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Deixe sua sugestão</h2>
+                    	<p>Logar Com Facebook</p>
+
+                    	 {{> loginButtons}}
+
+                    	<form id="form_sugestao">
+                    		<br>
+                    		<i class="fa fa-user-o"></i><label>Nome:</label>
+                    		<input id="nome" value={{nomeUsuario}} type="text" class="form-control" placeholder="Nome" required>
+                    		<i class="fa fa-envelope-o"></i><label>Email:</label>
+                    		<input id="email" value={{emailUsuario}} type="text" class="form-control" placeholder="Email" required>               
+		                    		<label>Sugestão:</label>
+		                    		<input id="sugest" type="text" class="form-control" rows="3" placeholder="Sugestao">
+		                    		<br>
+		                    		<button type="submit" class="btn btn-success">Enviar</button>
+		                    		<button type="reset" class="btn btn-warning">Limpar</button>		      
+                    	</form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template name="contato">
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div  class="white">
+	                <h2>Contate no Email e Telefone caso dúvidas</h2>
+	                <p>Email para dúvidas:</p>
+	                <p><i class="fa fa-envelope"></i> FisicoAcademia@gmail.com</p>
+	                <p>Telefone para dúvidas:</p>
+	                <p><i class="fa fa-phone"></i> (49) 3325 1391</p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://twitter.com/FisicoAcademia" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/FisicoAcademia/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map">  
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7746.468795355887!2d-52.61806130152323!3d-27.10049661803472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b69d23b56325%3A0xfa2d17477e2d7414!2sF%C3%ADsico+Academia!5e0!3m2!1spt-BR!2sbr!4v1490389989860" width="100%" height="100%" frameborder="1" style="border:0" allowfullscreen></iframe>
+</div>
+</template>
